@@ -1,8 +1,13 @@
-<div class="container mt-4">
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <h1 *ngIf="post">{{ post.title }}</h1>
-      <p *ngIf="post">{{ post.content }}</p>
+<article class="blog-post">
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h2 *ngIf="post" class="display-5 link-body-emphasis mb-1">
+          {{ post.title }}
+        </h2>
+        <p class="blog-post-meta">{{ post?.date }} - <a href="#">Pablo</a></p>
+        <p *ngIf="post">{{ post.content }}</p>
+      </div>
     </div>
   </div>
-</div>
+</article>

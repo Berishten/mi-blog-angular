@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+.blog-post-meta {
+  margin-bottom: 1.25rem;
+  color: #727272;
+}
