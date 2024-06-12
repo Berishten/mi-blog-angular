@@ -6,3 +6,26 @@
 .blog-header-logo:hover {
   text-decoration: none;
 }
+.sidebar-btn-container {
+  width: fit-content;
+  padding-right: 0;
+}
+
+.sidebar-btn {
+  font-size: 1.6em;
+  border-radius: 7px;
+}
+
+.sidebar-btn:hover {
+  cursor: pointer;
+  color: white;
+  background-color: black;
+}
+
+header {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
