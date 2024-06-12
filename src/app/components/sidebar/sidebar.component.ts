@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Categoria } from '../../models/categoria.model';
+import { Category } from '../../models/category.model';
 import { BlogService } from '../../services/blog.service';
 import { Router, RouterModule } from '@angular/router';
 
@@ -12,7 +12,7 @@ import { Router, RouterModule } from '@angular/router';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent implements OnInit {
-  categorias: Categoria[] = [];
+  categorias: Category[] = [];
 
   constructor(private blogService: BlogService, private router: Router) { }
 

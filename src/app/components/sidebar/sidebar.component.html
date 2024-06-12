@@ -5,9 +5,16 @@
   </div>
   <div class="offcanvas-body">
     <ul class="list-group list-group-flush">
-      <li *ngFor="let categoria of categorias" class="list-group-item list-group-item-action">
-        <a [routerLink]="['/categoria', categoria.id]" class="text-body-emphasis fw-bold">{{categoria.nombre}}</a>
-      </li>
+      <a [routerLink]="['/']" class="text-body-emphasis text-decoration-none list-group-item list-group-item-action">
+        <li class="list-unstyled">
+          Todos los registros
+        </li>
+      </a>
+      <a *ngFor="let categoria of categorias" [routerLink]="['/category', categoria.id]" class="text-body-emphasis text-decoration-none list-group-item list-group-item-action">
+        <li class="list-unstyled">
+          {{categoria.name}}
+        </li>
+      </a>
     </ul>
   </div>
 </div>

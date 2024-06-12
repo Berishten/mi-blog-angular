@@ -3,6 +3,7 @@ import { Post } from '../../models/post.model';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { BlogService } from '../../services/blog.service';
 import { CommonModule } from '@angular/common';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-post-detail',
@@ -13,6 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class PostDetailComponent implements OnInit {
   post: Post | undefined;
+  private destroy$ = new Subject<void>();
 
   constructor(
     private route: ActivatedRoute,
@@ -21,6 +23,13 @@ export class PostDetailComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.blogService.getPostById(id).subscribe(post => this.post = post);
+    this.blogService.getPostById(id)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(post => this.post = post);
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
