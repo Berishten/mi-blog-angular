@@ -8,7 +8,7 @@ import { Subject, takeUntil } from 'rxjs';
 @Component({
   selector: 'app-post-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './post-detail.component.html',
   styleUrl: './post-detail.component.css'
 })

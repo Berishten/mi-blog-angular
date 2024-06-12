@@ -1,8 +1,15 @@
 <article class="blog-post">
   <div class="container mt-4">
     <div class="row">
-      <div class="col-md-8 offset-md-2">
-        <i class="bi bi-arrow-left-circle-fill"></i>
+      <div class="col-md-8 offset-md-2 p-4">
+        <a [routerLink]="['/']" class="d-flex align-items-center back-btn text-decoration-none text-body-emphasis mb-3">
+          <i class="bi bi-arrow-left-circle-fill"></i>
+          <div class="px-1">Atrás</div>
+        </a>
+        <!-- <div class="d-flex align-items-center">
+          <i class="bi bi-arrow-left-circle-fill"></i>
+          <div class="px-1">Atrás</div>
+        </div> -->
         <h2 *ngIf="post" class="display-5 link-body-emphasis mb-1">
           {{ post.title }}
         </h2>
