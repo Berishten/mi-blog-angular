@@ -10,7 +10,11 @@
           <div class="w-75"><p class="lead my-3 truncate">{{post.content}}</p></div>
           <div class="w-25"><img *ngIf="post?.imageUrl" [src]="post?.imageUrl" alt="Post Image" class="img-fluid"></div>
         </div>
-        <p class="lead mb-0"><a [routerLink]="['/post', post.id]" class="text-body-emphasis fw-bold">Continuar leyendo...</a></p>
+        <p class="lead mb-0">
+          <a [routerLink]="['/post', post.id]" class="icon-link icon-link-hover">
+            Ir al post <i class="bi bi-arrow-right"></i>
+          </a>
+        </p>
       </div>
 
       <p *ngIf="posts.length === 0">No hay posts disponibles.</p>
