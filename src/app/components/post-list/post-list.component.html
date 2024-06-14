@@ -1,22 +1,23 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-md-8 offset-md-2">
-      <div *ngFor="let post of posts" class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary shadow-sm">
+      <article *ngFor="let post of posts" class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary" [routerLink]="['/post', post.id]">
         <div class="d-flex flex-column mb-3">
           <h1 class="display-5">{{ post.title }}</h1>
           <p class="blog-post-meta m-0">{{ post?.date }} - <a href="#">Pablo</a></p>
         </div>
         <div class="d-flex justify-content-between">
           <div class="w-75"><p class="lead my-3 truncate">{{post.content}}</p></div>
-          <div class="w-25"><img *ngIf="post?.imageUrl" [src]="post?.imageUrl" alt="Post Image" class="img-fluid"></div>
+          <div class="w-25 p-3">
+            <img *ngIf="post?.imageUrl" [src]="post?.imageUrl" alt="Post Image" class="img-fluid">
+          </div>
         </div>
         <p class="lead mb-0">
           <a [routerLink]="['/post', post.id]" class="icon-link icon-link-hover">
             Ir al post <i class="bi bi-arrow-right"></i>
           </a>
         </p>
-      </div>
-
+      </article>
       <p *ngIf="posts.length === 0">No hay posts disponibles.</p>
     </div>
   </div>
