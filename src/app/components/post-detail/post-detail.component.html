@@ -13,5 +13,11 @@
         <p *ngIf="post">{{ post.content }}</p>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-8 offset-md-2 p-4 mt-5">
+        <h4 class="mb-3">Comentarios:</h4>
+        <app-comentarios [comentarios]="comentarios"></app-comentarios>
+      </div>
+    </div>
   </div>
 </article>
