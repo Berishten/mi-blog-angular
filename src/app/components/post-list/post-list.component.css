@@ -5,3 +5,14 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+article {
+  cursor: pointer;
+  transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
+}
+
+article:hover {
+  box-shadow: 0 10px 10px -7px rgba(46, 71, 93, 0.12);
+  transform: scale(1.007);
+  transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
+}
