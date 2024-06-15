@@ -1,7 +1,18 @@
 .blog-post {
   margin-bottom: 4rem;
+  text-align: justify
 }
 
 .back-btn {
   font-size: 1.3em;
+}
+
+i.bi-star-fill::before {
+  font-size: 1.5em;
+  color: var(--bs-warning);
+}
+
+p::first-letter {
+  font-size: 1.5em;
+  font-weight: bold;
 }

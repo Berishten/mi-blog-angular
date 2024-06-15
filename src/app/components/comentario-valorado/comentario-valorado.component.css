@@ -1,0 +1,15 @@
+i {
+  font-size: .8em;
+  color: var(--bs-warning);
+}
+
+i.bi-star-fill::before {
+  transform: translateY(0);
+  transition: transform .3s;
+  transition: font-size .3s;
+}
+
+div.comentario:hover i.bi-star-fill::before {
+  transform: translateY(-7px);
+  font-size: 1.1em;
+}

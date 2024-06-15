@@ -1,0 +1,24 @@
+<h4 class="mb-3">Comentarios:</h4>
+@for (comentario of comentarios; track comentario.id) {
+<div
+  class="d-flex flex-column border border-1 rounded-1 mb-3 p-3 bg-body-tertiary comentario"
+>
+  <h6 class="m-0 fst-italic opacity-75">Autor: {{ comentario.autor }}</h6>
+  <div class="d-flex justify-content-between border-bottom">
+    <h6 class="fst-italic opacity-75">Fecha: {{ comentario.fecha }}</h6>
+    <div>
+      @for (i of [].constructor(comentario.valoracion); track i) {
+        <i class="bi bi-star-fill"></i>
+      }
+      @for (i of [].constructor(sinValoracion(comentario)); track i) {
+      <i class="bi bi-star"></i>
+      }
+    </div>
+  </div>
+  <p class="m-0">{{ comentario.texto }}</p>
+</div>
+} @empty {
+<p class="text-center rounded-1 py-auto bg-body-tertiary text-muted p-3">
+  No hay comentarios
+</p>
+}

@@ -9,13 +9,19 @@
         <h2 *ngIf="post" class="display-5 link-body-emphasis mb-1">
           {{ post.title }}
         </h2>
-        <p class="blog-post-meta">{{ post?.date }} - <a href="#">Pablo</a></p>
+        <div class="d-flex justify-content-between fst-italic opacity-75 mb-3">
+          <span>{{ post?.date }} - <a href="#">Pablo</a></span>
+          <div class="d-flex align-items-center">
+            <span class="me-2">{{ calculateAverageRating() }} / 5</span>
+            <i class="bi bi-star-fill"></i>
+          </div>
+        </div>
         <p *ngIf="post">{{ post.content }}</p>
       </div>
     </div>
     <div class="row">
       <div class="col-md-8 offset-md-2 p-4 mt-5">
-        <app-comentarios [comentarios]="comentarios"></app-comentarios>
+        <app-comentario-valorado [comentarios]="comentarios"></app-comentario-valorado>
       </div>
     </div>
   </div>
