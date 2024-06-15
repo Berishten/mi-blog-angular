@@ -1,8 +1,12 @@
 <h4 class="mb-3">Comentarios:</h4>
-@for (comentario of comentarios; track comentario.id) {
-<div class="d-flex flex-column border border-1 rounded-1 mb-3 p-3 bg-body-tertiary">
-  <h6 class="m-0 fst-italic opacity-75">Autor: {{ comentario.autor }}</h6>
-  <h6 class="border-bottom fst-italic opacity-75">Fecha: {{ comentario.fecha }}</h6>
-  <p class="m-0">{{ comentario.texto }}</p>
-</div>
+@if (comentarios && comentarios.length > 0) {
+  @for (comentario of comentarios; track comentario.id) {
+  <div class="d-flex flex-column border border-1 rounded-1 mb-3 p-3 bg-body-tertiary">
+    <h6 class="m-0 fst-italic opacity-75">Autor: {{ comentario.autor }}</h6>
+    <h6 class="border-bottom fst-italic opacity-75">Fecha: {{ comentario.fecha }}</h6>
+    <p class="m-0">{{ comentario.texto }}</p>
+  </div>
+  }
+} @else {
+  <p class="text-center rounded-1 py-auto bg-body-tertiary text-muted p-3">No hay comentarios</p>
 }

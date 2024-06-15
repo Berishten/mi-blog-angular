@@ -9,5 +9,6 @@ import { Comentario } from '../../models/comentario.model';
   styleUrl: './comentarios.component.css'
 })
 export class ComentariosComponent {
-  @Input() comentarios: Comentario[] = [];
+  @Input({ required: true }) comentarios: Comentario[] = [];
 }
+
