@@ -1,6 +1,10 @@
-i {
+i.bi-star-fill, i.bi-star {
   font-size: .8em;
   color: var(--bs-warning);
+}
+
+i.bi-chat {
+  font-size: .9em;
 }
 
 i.bi-star-fill::before {

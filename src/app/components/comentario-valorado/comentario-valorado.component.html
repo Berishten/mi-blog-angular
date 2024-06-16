@@ -1,4 +1,7 @@
-<h4 class="mb-3">Comentarios:</h4>
+<h4 class="mb-3"><i class="bi bi-chat"></i> Comentarios <h5 class="d-inline">({{comentarios.length}})</h5>:</h4>
+<app-agregar-comentario
+  [idPost]="idPost"
+  (comentarioCreado)="comentarioCreado($event)"></app-agregar-comentario>
 @for (comentario of comentarios; track comentario.id) {
 <div
   class="d-flex flex-column border border-1 rounded-1 mb-3 p-3 bg-body-tertiary comentario"
@@ -7,10 +10,10 @@
   <div class="d-flex justify-content-between border-bottom">
     <h6 class="fst-italic opacity-75">Fecha: {{ comentario.fecha }}</h6>
     <div>
-      @for (i of [].constructor(comentario.valoracion); track i) {
+      @for (i of [].constructor(comentario.valoracion); track "fill" + $index) {
         <i class="bi bi-star-fill"></i>
       }
-      @for (i of [].constructor(sinValoracion(comentario)); track i) {
+      @for (i of [].constructor(sinValoracion(comentario)); track "star" + $index) {
       <i class="bi bi-star"></i>
       }
     </div>

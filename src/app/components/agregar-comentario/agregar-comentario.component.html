@@ -1,0 +1,62 @@
+<form
+  [formGroup]="comentarioForm"
+  (ngSubmit)="onSubmit()"
+  class="border border-1 rounded-1 p-3 mb-3"
+>
+  <div class="d-flex">
+    <div class="flex-fill me-3">
+      <div class="input-group mb-3">
+        <span for="autor" class="input-group-text" id="autor">Autor</span>
+        <input
+          aria-label="autor"
+          aria-describedby="autor"
+          formControlName="autor"
+          type="text"
+          class="form-control"
+          id="autor"
+          placeholder="Autor"
+        />
+      </div>
+    </div>
+    <div class="flex-fill">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="email">{{ "@" }}</span>
+        <input
+          type="email"
+          class="form-control"
+          placeholder="email"
+          aria-label="email"
+          aria-describedby="email"
+          formControlName="email"
+          placeholder="nombre@ejemplo.cl"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <div class="d-flex justify-content-between">
+      <label for="comentario" class="form-label">Comentario:</label>
+      <div>
+        <label for="valoracion" class="form-label me-1">Valoración:</label>
+        <app-valoracion (valoracion)="valoracion"></app-valoracion>
+      </div>
+    </div>
+    <textarea
+      formControlName="texto"
+      class="form-control"
+      id="comentario"
+      rows="3"
+    ></textarea>
+    <p class="opacity-50 float-end me-1">
+      {{ comentarioForm.get("texto")?.value?.length || 0 }}/10
+    </p>
+  </div>
+  <button
+    type="submit"
+    class="btn btn-outline-primary mx-auto"
+    [disabled]="!comentarioForm.valid"
+  >
+    Comentar
+  </button>
+</form>

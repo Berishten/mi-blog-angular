@@ -1,0 +1,25 @@
+i {
+  cursor: pointer;
+}
+
+i.bi-star-fill,
+i.bi-star {
+  font-size: 1em;
+  color: var(--bs-warning);
+}
+
+i.bi-star-fill::before {
+  transform: translateY(0);
+  transition: transform .3s;
+  transition: font-size .3s;
+}
+
+i.bi-star::before {
+  transform: translateY(0);
+  transition: transform .3s;
+  transition: font-size .3s;
+}
+
+i.bi-star-fill:hover::before {
+  font-size: 1.2em;
+}

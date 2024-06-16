@@ -1,0 +1,8 @@
+@for (i of [].constructor(5); track "star" + $index) {
+<i
+  [ngClass]="hover[$index] ? 'bi bi-star-fill' : 'bi bi-star'"
+  (mouseover)="onMouseOver($index)"
+  (mouseout)="mouseout()"
+  (click)="onClick($index)"
+></i>
+}
