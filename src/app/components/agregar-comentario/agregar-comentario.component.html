@@ -95,13 +95,14 @@
     </div>
     <!-- COMENTARIO -->
     <textarea
+      #comentario
       formControlName="texto"
       class="form-control mt-1"
       id="comentario"
       rows="3"
     ></textarea>
     <p class="opacity-50 float-end me-1">
-      {{ comentarioForm.get("texto")?.value?.length || 0 }}/10
+      {{ comentario?.value?.length || 0 }}/10
     </p>
   </div>
 
