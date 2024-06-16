@@ -1,5 +1,5 @@
 <article class="blog-post">
-  <div class="container mt-4">
+  <div class="container">
     <div class="row">
       <div class="col-md-8 offset-md-2 p-4">
         <a
@@ -10,7 +10,7 @@
           <i class="bi bi-arrow-left-circle-fill"></i>
           Atrás
         </a>
-        <hr>
+        <hr />
         <h2 *ngIf="post" class="display-5 link-body-emphasis mb-1 mt-4">
           {{ post.title }}
         </h2>
@@ -18,7 +18,9 @@
           <span>{{ post?.date }} - <a href="#">Pablo</a></span>
           <div class="d-flex align-items-center">
             <span class="me-2">{{
-              calculateAverageRating() ? calculateAverageRating() + " / 5" : "Sin valoraciones"
+              calculateAverageRating()
+                ? calculateAverageRating() + " / 5"
+                : "Sin valoraciones"
             }}</span>
             <i class="bi bi-star-fill"></i>
           </div>
@@ -28,9 +30,7 @@
     </div>
     <div class="row">
       <div class="col-md-8 offset-md-2 p-4 mt-5">
-        <app-comentario-valorado
-          [comentarios]="comentarios"
-        />
+        <app-comentario-valorado [comentarios]="comentarios" />
       </div>
     </div>
   </div>

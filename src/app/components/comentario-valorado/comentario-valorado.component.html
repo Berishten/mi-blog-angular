@@ -1,8 +1,22 @@
-<h4 class="mb-3">
-  <i class="bi bi-chat"></i> Comentarios
-  <h5 class="d-inline">({{ comentarios.length }})</h5>
-  :
-</h4>
+<div class="d-flex justify-content-between align-items-center">
+  <h4 class="mb-3">
+    <i class="bi bi-chat"></i> Comentarios
+    <h5 class="d-inline">({{ comentarios.length }})</h5>
+    :
+  </h4>
+  <button
+    class="btn btn-outline-primary mb-3"
+    (click)="formularioComentar = !formularioComentar"
+  >
+    <i class="bi bi-chat"></i> Comentar
+  </button>
+</div>
+<app-open-close [openClose]="formularioComentar">
+  <app-agregar-comentario
+    [idPost]="idPost"
+    (comentarioCreado)="comentarioCreado($event)"
+  ></app-agregar-comentario>
+</app-open-close>
 @for (comentario of comentarios; track comentario.id) {
 <div
   class="d-flex flex-column border border-1 rounded-1 mb-3 p-3 bg-body-tertiary comentario"
@@ -22,20 +36,7 @@
   <p class="m-0">{{ comentario.texto }}</p>
 </div>
 } @empty {
-<p class="text-center rounded-1 py-auto bg-body-tertiary text-muted p-3">
+<p class="text-center rounded-1 bg-body-tertiary text-muted p-3 m-0">
   No hay comentarios
 </p>
 }
-<button
-  class="btn btn-outline-primary mb-3"
-  (click)="formularioComentar = !formularioComentar"
->
-  <i class="bi bi-chat"></i> Comentar
-</button>
-
-<app-open-close [openClose]="formularioComentar">
-  <app-agregar-comentario
-    [idPost]="idPost"
-    (comentarioCreado)="comentarioCreado($event)"
-  ></app-agregar-comentario>
-</app-open-close>
