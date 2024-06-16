@@ -2,11 +2,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Comentario } from '../../models/comentario.model';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ValoracionComponent } from '../valoracion/valoracion.component';
+import { NgClass, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-agregar-comentario',
   standalone: true,
-  imports: [ReactiveFormsModule, ValoracionComponent],
+  imports: [ReactiveFormsModule, ValoracionComponent, NgIf, NgClass],
   templateUrl: './agregar-comentario.component.html',
   styleUrl: './agregar-comentario.component.css'
 })
@@ -27,22 +28,22 @@ export class AgregarComentarioComponent {
       Validators.required,
       Validators.email,
     ]),
-    valoracion: new FormControl('', Validators.required)
+    valoracion: new FormControl(null, Validators.required)
   });
 
-
-  public set valoracion(v: number) {
-    this.comentarioForm.get("valoracion")?.setValue(v);
-  }
-
   onSubmit() {
+    if (this.comentarioForm.invalid) {
+      this.comentarioForm.markAllAsTouched();
+      return;
+    }
+
     const comentarioValues = this.comentarioForm.value;
     const comentarioNuevo: Comentario = {
       id: 0,
       texto: comentarioValues.texto,
       autor: comentarioValues.autor,
       fecha: '12/12/2012',
-      valoracion: Math.floor(Math.random() * 5) + 1
+      valoracion: comentarioValues.valoracion
     };
 
     this.comentarioForm.reset();

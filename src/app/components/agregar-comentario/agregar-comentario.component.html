@@ -3,48 +3,100 @@
   (ngSubmit)="onSubmit()"
   class="border border-1 rounded-1 p-3 mb-3"
 >
+  <!-- <h4 class="text-center mb-4">Comentar</h4> -->
+  <!-- AUTOR E EMAIL -->
   <div class="d-flex">
+    <!-- AUTOR -->
     <div class="flex-fill me-3">
-      <div class="input-group mb-3">
-        <span for="autor" class="input-group-text" id="autor">Autor</span>
-        <input
-          aria-label="autor"
-          aria-describedby="autor"
-          formControlName="autor"
-          type="text"
-          class="form-control"
-          id="autor"
-          placeholder="Autor"
-        />
+      <label for="autor" class="form-label mb-0">Autor:</label>
+      <input
+        aria-label="autor"
+        aria-describedby="autor"
+        formControlName="autor"
+        type="text"
+        class="form-control mt-1"
+        id="autor"
+        placeholder="Autor"
+      />
+    </div>
+    <!-- EMAIL -->
+    <div class="flex-fill">
+      <label for="email" class="form-label mb-0">Email:</label>
+      <input
+        type="email"
+        class="form-control mt-1"
+        placeholder="email"
+        aria-label="email"
+        aria-describedby="email"
+        formControlName="email"
+        placeholder="nombre@ejemplo.cl"
+      />
+    </div>
+  </div>
+
+  <!-- Validaciones -->
+  <div class="d-flex mb-1">
+    <div class="flex-fill me-3">
+      <div
+        *ngIf="
+          comentarioForm.get('autor')?.invalid &&
+          (comentarioForm.get('autor')?.dirty ||
+            comentarioForm.get('autor')?.touched)
+        "
+      >
+        <span
+          class="text-danger opacity-75"
+          *ngIf="comentarioForm.get('autor')?.errors?.['required']"
+        >
+          El autor es requerido
+        </span>
+        <span
+          class="text-danger opacity-75"
+          *ngIf="comentarioForm.get('autor')?.errors?.['minlength']"
+        >
+          El autor debe tener al menos 4 caracteres
+        </span>
       </div>
     </div>
-    <div class="flex-fill">
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="email">{{ "@" }}</span>
-        <input
-          type="email"
-          class="form-control"
-          placeholder="email"
-          aria-label="email"
-          aria-describedby="email"
-          formControlName="email"
-          placeholder="nombre@ejemplo.cl"
-        />
+    <div class="flex-fill ps-4">
+      <div
+        *ngIf="
+          comentarioForm.get('email')?.invalid &&
+          (comentarioForm.get('email')?.dirty ||
+            comentarioForm.get('email')?.touched)
+        "
+      >
+        <span
+          class="text-danger opacity-75"
+          *ngIf="comentarioForm.get('email')?.errors?.['required']"
+        >
+          El email es requerido
+        </span>
       </div>
     </div>
   </div>
 
-  <div class="mb-3">
+  <!-- COMENTARIO Y VALORACION-->
+  <div class="mt-3">
     <div class="d-flex justify-content-between">
-      <label for="comentario" class="form-label">Comentario:</label>
-      <div>
-        <label for="valoracion" class="form-label me-1">Valoración:</label>
-        <app-valoracion (valoracion)="valoracion"></app-valoracion>
+      <label for="comentario" class="form-label mb-0">Comentario:</label>
+      <!-- VALORACION -->
+      <div
+        [ngClass]="{
+          'border border-1 border-danger rounded-1 p-1':
+            comentarioForm.get('valoracion')?.invalid &&
+            (comentarioForm.get('valoracion')?.dirty ||
+              comentarioForm.get('valoracion')?.touched)
+        }"
+      >
+        <label for="valoracion" class="form-label me-1 mb-0">Valoración:</label>
+        <app-valoracion formControlName="valoracion"></app-valoracion>
       </div>
     </div>
+    <!-- COMENTARIO -->
     <textarea
       formControlName="texto"
-      class="form-control"
+      class="form-control mt-1"
       id="comentario"
       rows="3"
     ></textarea>
@@ -52,11 +104,30 @@
       {{ comentarioForm.get("texto")?.value?.length || 0 }}/10
     </p>
   </div>
-  <button
-    type="submit"
-    class="btn btn-outline-primary mx-auto"
-    [disabled]="!comentarioForm.valid"
+
+  <!-- Validaciones -->
+  <div
+    *ngIf="
+      comentarioForm.get('texto')?.invalid &&
+      (comentarioForm.get('texto')?.dirty ||
+        comentarioForm.get('texto')?.touched)
+    "
   >
+    <span
+      class="text-danger opacity-75"
+      *ngIf="comentarioForm.get('texto')?.errors?.['required']"
+    >
+      El comentario es requerido
+    </span>
+    <span
+      class="text-danger opacity-75"
+      *ngIf="comentarioForm.get('texto')?.errors?.['minlength']"
+    >
+      El comentario debe tener al menos 10 caracteres
+    </span>
+  </div>
+
+  <button type="submit" class="btn btn-outline-primary mx-auto mt-3">
     Comentar
   </button>
 </form>

@@ -19,10 +19,10 @@ export class PostDetailComponent implements OnInit {
   post: Post | undefined;
   private destroy$ = new Subject<void>();
   comentariosMock: Comentario[] = [
-    { id: 0, postId: 0, valoracion: 1, texto: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes', autor: 'Beridevs', fecha: '16/02/2022' },
-    { id: 1, postId: 0, valoracion: 5, texto: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes', autor: 'Pablo', fecha: '02/03/2024' },
-    { id: 2, postId: 0, valoracion: 3, texto: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes', autor: 'ElPerverto2', fecha: '02/03/2024' },
-    { id: 3, postId: 0, valoracion: 4, texto: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes', autor: 'Chichero21', fecha: '30/12/2024' },
+    // { id: 0, postId: 0, valoracion: 1, texto: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes', autor: 'Beridevs', fecha: '16/02/2022' },
+    // { id: 1, postId: 0, valoracion: 5, texto: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes', autor: 'Pablo', fecha: '02/03/2024' },
+    // { id: 2, postId: 0, valoracion: 3, texto: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes', autor: 'ElPerverto2', fecha: '02/03/2024' },
+    // { id: 3, postId: 0, valoracion: 4, texto: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes', autor: 'Chichero21', fecha: '30/12/2024' },
   ];
 
   constructor(

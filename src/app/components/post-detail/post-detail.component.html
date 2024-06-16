@@ -2,7 +2,11 @@
   <div class="container mt-4">
     <div class="row">
       <div class="col-md-8 offset-md-2 p-4">
-        <a [routerLink]="['/']" class="icon-link icon-link-hover fs-5 mb-3" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);">
+        <a
+          [routerLink]="['/']"
+          class="icon-link icon-link-hover fs-5 mb-3"
+          style="--bs-icon-link-transform: translate3d(0, -0.125rem, 0)"
+        >
           <i class="bi bi-arrow-left-circle-fill"></i>
           Atrás
         </a>
@@ -12,7 +16,9 @@
         <div class="d-flex justify-content-between fst-italic opacity-75 mb-3">
           <span>{{ post?.date }} - <a href="#">Pablo</a></span>
           <div class="d-flex align-items-center">
-            <span class="me-2">{{ calculateAverageRating() }} / 5</span>
+            <span class="me-2">{{
+              calculateAverageRating() ? calculateAverageRating() + " / 5" : "Sin valoraciones"
+            }}</span>
             <i class="bi bi-star-fill"></i>
           </div>
         </div>
@@ -21,7 +27,9 @@
     </div>
     <div class="row">
       <div class="col-md-8 offset-md-2 p-4 mt-5">
-        <app-comentario-valorado [comentarios]="comentarios"></app-comentario-valorado>
+        <app-comentario-valorado
+          [comentarios]="comentarios"
+        ></app-comentario-valorado>
       </div>
     </div>
   </div>
