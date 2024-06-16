@@ -26,7 +26,16 @@
   No hay comentarios
 </p>
 }
-<app-agregar-comentario
-  [idPost]="idPost"
-  (comentarioCreado)="comentarioCreado($event)"
-></app-agregar-comentario>
+<button
+  class="btn btn-outline-primary mb-3"
+  (click)="formularioComentar = !formularioComentar"
+>
+  <i class="bi bi-chat"></i> Comentar
+</button>
+
+<app-open-close [openClose]="formularioComentar">
+  <app-agregar-comentario
+    [idPost]="idPost"
+    (comentarioCreado)="comentarioCreado($event)"
+  ></app-agregar-comentario>
+</app-open-close>

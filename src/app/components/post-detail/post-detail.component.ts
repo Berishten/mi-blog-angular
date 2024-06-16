@@ -7,13 +7,14 @@ import { Subject, takeUntil } from 'rxjs';
 import { ComentariosComponent } from "../comentarios/comentarios.component";
 import { Comentario } from '../../models/comentario.model';
 import { ComentarioValoradoComponent } from "../comentario-valorado/comentario-valorado.component";
+import { OpenCloseComponent } from "../open-close/open-close.component";
 
 @Component({
-  selector: 'app-post-detail',
-  standalone: true,
-  templateUrl: './post-detail.component.html',
-  styleUrl: './post-detail.component.css',
-  imports: [RouterModule, CommonModule, ComentariosComponent, ComentarioValoradoComponent]
+    selector: 'app-post-detail',
+    standalone: true,
+    templateUrl: './post-detail.component.html',
+    styleUrl: './post-detail.component.css',
+    imports: [RouterModule, CommonModule, ComentariosComponent, ComentarioValoradoComponent, OpenCloseComponent]
 })
 export class PostDetailComponent implements OnInit {
   post: Post | undefined;

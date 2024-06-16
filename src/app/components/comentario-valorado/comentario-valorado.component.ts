@@ -2,16 +2,19 @@ import { Component } from '@angular/core';
 import { ComentariosComponent } from '../comentarios/comentarios.component';
 import { Comentario } from '../../models/comentario.model';
 import { AgregarComentarioComponent } from "../agregar-comentario/agregar-comentario.component";
+import { OpenCloseComponent } from "../open-close/open-close.component";
 
 @Component({
   selector: 'app-comentario-valorado',
   standalone: true,
   templateUrl: './comentario-valorado.component.html',
   styleUrl: './comentario-valorado.component.css',
-  imports: [AgregarComentarioComponent]
+  imports: [AgregarComentarioComponent, OpenCloseComponent]
 })
 export class ComentarioValoradoComponent extends ComentariosComponent {
-  public get idPost() : number {
+  formularioComentar: boolean = false;
+
+  public get idPost(): number {
     return 0;
   }
 
